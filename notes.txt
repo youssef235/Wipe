@@ -1,0 +1,14 @@
+apis
+1- api to join subscriptions 
+the user have to enter all car information when joining 
+2-api to return all avaliable subscriptions
+
+
+"0596990513",
+        "0111111111",
+        "0222222222",
+        "0333333333",
+        "0999999999",
+        "0546892433"
+
+        {"message":"The given data was invalid.","errors":{"subscribe_id":["\u064a\u062c\u0628 \u062a\u0639\u0628\u0626\u0629 \u062d\u0642\u0644 subscribe id."]}}
