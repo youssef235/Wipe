@@ -82,18 +82,25 @@ class _PackagesScreenState extends State<PackagesScreen> {
 
   init() async {
     print("your token is ${await sharedPref.getString("TOKEN")}");
-    await getVehicles().then(
-          (value) {
-        vehicleModel = value;
-        setState(() {});
-      },
-    );
-    await getWashServices().then(
-          (value) {
-        washType = value;
-        setState(() {});
-      },
-    );
+
+    try {
+      // استرجاع العربات
+      vehicleModel = await getVehicles();
+
+      // إعادة بناء الواجهة مع البيانات الجديدة
+      setState(() {});
+    } catch (e) {
+      print("Error: $e"); // طباعة الخطأ في حالة حدوثه
+      toast(e.toString()); // يمكنك استعراض الخطأ للمستخدم
+    }
+
+    // استرجاع خدمات الغسل
+    try {
+      washType = await getWashServices();
+      setState(() {});
+    } catch (e) {
+      print("Error fetching wash services: $e");
+    }
   }
 
   @override
@@ -161,7 +168,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                         }
                         return Center(
                           child: SelectCarWidget(
-                            text: vehicleModel!.data![i - 1].vehicleCardNum,
+                            text: vehicleModel!.data![i - 1].manufacturerName,
                             type: vehicleModel!.data![i - 1].vehicleType,
                             carId: vehicleModel!.data![i - 1].id ?? 0,
                           ),

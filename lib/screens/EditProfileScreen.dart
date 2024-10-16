@@ -129,7 +129,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                     focus: firstnameFocus,
                     nextFocus: lastnameFocus,
                     decoration: InputDecoration(
-                      labelText: language.firstName,
+                      labelText: "الاسم الأول",
                       labelStyle: TextStyle(fontSize: 14), // تصغير حجم النص
                       suffixIcon: Icon(Icons.person, color: appTheme.secondry),
                       filled: true,
@@ -155,7 +155,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                     focus: lastnameFocus,
                     nextFocus: contactFocus,
                     decoration: InputDecoration(
-                      labelText: language.lastName,
+                      labelText: "الاسم الاخير",
                       labelStyle: TextStyle(fontSize: 14), // تصغير حجم النص
                       suffixIcon: Icon(Icons.person, color: appTheme.secondry),
                       filled: true,
@@ -181,7 +181,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                     focus: contactFocus,
                     nextFocus: addressFocus,
                     decoration: InputDecoration(
-                      labelText: language.phoneNumber,
+                      labelText: "رقم الجوال",
                       labelStyle: TextStyle(fontSize: 14), // تصغير حجم النص
                       suffixIcon: Icon(Icons.phone, color: appTheme.secondry),
                       filled: true,
@@ -206,7 +206,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                     textFieldType: TextFieldType.ADDRESS,
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                      labelText: language.address,
+                      labelText: "العنوان",
                       labelStyle: TextStyle(fontSize: 14), // تصغير حجم النص
                       suffixIcon: Icon(Icons.home, color: appTheme.secondry),
                       filled: true,
@@ -241,7 +241,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(16),
         child: AppButtonWidget(
-          text: language.updateProfile,
+          text: "تحديث الملف",
           textStyle: boldTextStyle(color: Colors.white),
           color: appTheme.secondry, // لون الزر بلون theme.secondary
           elevation: 5,

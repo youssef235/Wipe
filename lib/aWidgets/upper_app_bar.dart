@@ -21,6 +21,9 @@ class _CustomRowWidgetState extends State<CustomRowWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // الحصول على عرض الشاشة باستخدام MediaQuery
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -30,7 +33,7 @@ class _CustomRowWidgetState extends State<CustomRowWidget> {
             onTap: _expandContainer,
             child: AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              width: _isExpanded ? 360.0 : 60.0,
+              width: _isExpanded ? screenWidth - 60 : 60.0, // استخدام عرض الشاشة
               height: 60.0,
               decoration: BoxDecoration(
                 color: appTheme.secondry,
@@ -39,79 +42,79 @@ class _CustomRowWidgetState extends State<CustomRowWidget> {
               alignment: Alignment.center,
               child: _isExpanded
                   ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: IconButton(
-                            icon: SvgPicture.asset(
-                              'images/global.svg',
-                              width: 35,
-                              height: 35,
-                            ),
-                            onPressed: () {
-                              //  Navigator.pushNamed(context, '/page2');
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.local_offer,
-                              size: 30,
-                              color: appTheme.primary,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DashBoardScreen()),
-                              );
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            icon: Image.asset(
-                              'images/profile_bar.png',
-                              width: 30,
-                              height: 30,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MainScreen()),
-                              );
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            icon: Image.asset(
-                              'images/close_bar.png',
-                              width: 30,
-                              height: 30,
-                            ),
-                            onPressed: () {
-                              _expandContainer();
-                            },
-                          ),
-                        ),
-                      ],
-                    )
-                  : Container(
-                      width: 30.0,
-                      height: 30.0,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: IconButton(
+                      icon: SvgPicture.asset(
+                        'images/global.svg',
+                        width: 35,
+                        height: 35,
                       ),
-                      child: SvgPicture.asset(
-                        'images/menu.svg',
-                        fit: BoxFit.contain,
-                        width: 20.0,
-                        height: 20.0,
-                      ),
+                      onPressed: () {
+                        // Navigator.pushNamed(context, '/page2');
+                      },
                     ),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.local_offer,
+                        size: 30,
+                        color: appTheme.primary,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DashBoardScreen()),
+                        );
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      icon: Image.asset(
+                        'images/profile_bar.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainScreen()),
+                        );
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      icon: Image.asset(
+                        'images/close_bar.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                      onPressed: () {
+                        _expandContainer();
+                      },
+                    ),
+                  ),
+                ],
+              )
+                  : Container(
+                width: 30.0,
+                height: 30.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                  'images/menu.svg',
+                  fit: BoxFit.contain,
+                  width: 20.0,
+                  height: 20.0,
+                ),
+              ),
             ),
           ),
         ),

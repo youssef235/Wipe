@@ -18,6 +18,7 @@ import '../../utils/Extensions/theme_helper.dart';
 import '../DeleteAccountScreen.dart';
 import '../EditProfileScreen.dart';
 import '../RideListScreen.dart';
+import '../chat_screen/AdminChatScreen.dart';
 import '../chat_screen/ChatClient.dart';
 
 class MainScreen extends StatefulWidget {
@@ -106,16 +107,31 @@ class _MainScreenState extends State<MainScreen> {
                       SizedBox(height: 33.v),
                       MainItemWidget(
                         text: 'تواصل معنــا',
-                        onTap: () {
-                          launchScreen(
+                        onTap: () async {
+                          // استرجاع userId من SharedPreferences
+                          final SharedPreferences sharedPref = await SharedPreferences.getInstance();
+                          final String? userId = sharedPref.getInt(USER_ID)?.toString(); // تأكد من الحصول على user ID كـ String
+
+                          if (userId == '101') {
+                            // إذا كان userId يساوي 100
+                            launchScreen(
                               context,
-                              ChatScreen(
-                                isAdmin: false,
-                              ),
+                              AdminChatScreen(),
                               pageRouteAnimation: PageRouteAnimation.Slide,
-                              isNewTask: true);
+                              isNewTask: true,
+                            );
+                          } else {
+                            // أي قيمة أخرى
+                            launchScreen(
+                              context,
+                              ChatScreen(isAdmin: false,), // تأكد من أن ClientChatScreen موجودة في مشروعك
+                              pageRouteAnimation: PageRouteAnimation.Slide,
+                              isNewTask: true,
+                            );
+                          }
                         },
                       ),
+
                       SizedBox(height: 80.v),
                       Container(
                         height: 580.v,
@@ -174,14 +190,14 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
           Positioned(
-            bottom: 100.v,
+            bottom: 50.v, // زيادة القيمة هنا لتبتعد عن الكارد
             left: 0,
             right: 0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomElevatedButton(
-                  text: language.logOut,
+                  text: "تسجيل خروج",
                   height: 122.v,
                   width: 300.h, // Ensure the width is set
                   buttonTextStyle: TextStyle(
@@ -199,7 +215,8 @@ class _MainScreenState extends State<MainScreen> {
                           await appStore.setLoggedIn(false);
                           await sharedPref.setBool('isLoggedIn', false); // إزالة حالة تسجيل الدخول
                           launchScreen(context, SignInScreenNew(),
-                              pageRouteAnimation: PageRouteAnimation.Slide);                        });
+                              pageRouteAnimation: PageRouteAnimation.Slide);
+                        });
                   },
                 ),
                 CustomElevatedButton(
@@ -214,15 +231,6 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () async {
                     launchScreen(context, DeleteAccountScreen(),
                         pageRouteAnimation: PageRouteAnimation.Slide);
-                    // Add your functionality for account removal here
-                    // await showConfirmDialogCustom(context,
-                    //     primaryColor: primaryColor,
-                    //     dialogType: DialogType.CONFIRMATION,
-                    //     title: 'هل أنت متأكد أنك تريد إزالة الحساب؟',
-                    //     positiveText: 'نعم',
-                    //     negativeText: 'لا', onAccept: (v) async {
-                    //   // Add logic for account removal
-                    // });
                   },
                 ),
               ],

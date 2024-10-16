@@ -531,9 +531,11 @@ Future<LDBaseResponse> deleteUser() async {
 
 /// vehicles
 Future<VehicleModel> getVehicles() async {
-  return VehicleModel.fromMap(await handleResponse(
+  final response = await handleResponse(
     await buildHttpResponse('vehicles', method: HttpMethod.GET),
-  ));
+  );
+  print("Response from getVehicles: $response"); // إضافة هذا السطر
+  return VehicleModel.fromMap(response);
 }
 
 Future<VehicleObject> addVehicle({

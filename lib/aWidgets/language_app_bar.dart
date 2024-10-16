@@ -29,64 +29,67 @@ class _CustomRowWidgetState extends State<LanguageAppBar> {
             child: SvgPicture.asset(
               'images/splash_logo.svg',
               fit: BoxFit.fill,
-              width: 50,
+              width: 40,
               height: 70,
             ),
           ),
         ),
-        Spacer(),
+        Expanded(child: Container()), // هذه الإضافة تجعل الـ Spacer مرنًا لتجنب overflow
         Padding(
           padding: const EdgeInsets.all(30.0),
           child: GestureDetector(
             onTap: _expandContainer,
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
-              width: _isExpanded ? 200.0 : 60.0,
-              height: 60.0,
-              decoration: BoxDecoration(
-                color: appTheme.secondry, // Replace with your app theme color
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-              alignment: Alignment.center,
-              child: _isExpanded
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                            ),
-                            onPressed: () {
-                              // Implement AR functionality
-                            },
-                            child: Text('AR'),
-                          ),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                width: _isExpanded ? 200.0 : 60.0,
+                height: 60.0,
+                decoration: BoxDecoration(
+                  color: appTheme.secondry, // استبدل هذا بلون ثيم التطبيق
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                alignment: Alignment.center,
+                child: _isExpanded
+                    ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
                         ),
-                        SizedBox(width: 10),
-                        Flexible(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                            ),
-                            onPressed: () {
-                              // Implement EN functionality
-                            },
-                            child: Text('EN'),
-                          ),
-                        ),
-                      ],
-                    )
-                  : SvgPicture.asset(
-                      'images/global.svg',
-                      fit: BoxFit.fill,
-                      width: 30.0,
-                      height: 30.0,
+                        onPressed: () {
+                          // تنفيذ وظيفة AR
+                        },
+                        child: Text('AR'),
+                      ),
                     ),
+                    SizedBox(width: 10),
+                    Flexible(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                        ),
+                        onPressed: () {
+                          // تنفيذ وظيفة EN
+                        },
+                        child: Text('EN'),
+                      ),
+                    ),
+                  ],
+                )
+                    : SvgPicture.asset(
+                  'images/global.svg',
+                  fit: BoxFit.fill,
+                  width: 30.0,
+                  height: 30.0,
+                ),
+              ),
             ),
           ),
         ),

@@ -154,7 +154,7 @@ class _SignInScreenState extends State<SignInScreenNew> {
                   _isLoading
                       ? Center(
                           child:
-                              CircularProgressIndicator()) // عرض مؤشر التحميل في الوسط
+                              CircularProgressIndicator())
                       : CustomElevatedButton(
                     text: 'إستمر',
                     height: 122.v,

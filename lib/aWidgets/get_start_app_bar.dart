@@ -20,6 +20,9 @@ class _CustomRowWidgetState extends State<GetStartAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    // الحصول على عرض الشاشة الحالي
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -29,7 +32,7 @@ class _CustomRowWidgetState extends State<GetStartAppBar> {
             onTap: _expandContainer,
             child: AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              width: _isExpanded ? 360.0 : 60.0,
+              width: _isExpanded ? screenWidth - 16.0 : 60.0, // تعيين الحد الأقصى للعرض إلى عرض الشاشة
               height: 60.0,
               decoration: BoxDecoration(
                 color: appTheme.secondry,
@@ -38,58 +41,58 @@ class _CustomRowWidgetState extends State<GetStartAppBar> {
               alignment: Alignment.center,
               child: _isExpanded
                   ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: IconButton(
-                            icon: SvgPicture.asset(
-                              'images/global.svg',
-                              width: 35,
-                              height: 35,
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/page2');
-                            },
-                          ),
-                        ),
-                        Text(
-                          "EN",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          "AR",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            icon: Image.asset(
-                              'images/close_bar.png',
-                              width: 30,
-                              height: 30,
-                            ),
-                            onPressed: () {
-                              _expandContainer();
-                            },
-                          ),
-                        ),
-                      ],
-                    )
-                  : Container(
-                      width: 30.0,
-                      height: 30.0,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: IconButton(
+                      icon: SvgPicture.asset(
                         'images/global.svg',
-                        fit: BoxFit.contain,
-                        width: 20.0,
-                        height: 20.0,
+                        width: 35,
+                        height: 35,
                       ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/page2');
+                      },
                     ),
+                  ),
+                  Text(
+                    "EN",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    "AR",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      icon: Image.asset(
+                        'images/close_bar.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                      onPressed: () {
+                        _expandContainer();
+                      },
+                    ),
+                  ),
+                ],
+              )
+                  : Container(
+                width: 30.0,
+                height: 30.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                  'images/global.svg',
+                  fit: BoxFit.contain,
+                  width: 20.0,
+                  height: 20.0,
+                ),
+              ),
             ),
           ),
         ),
