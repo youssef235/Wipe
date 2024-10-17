@@ -74,160 +74,162 @@ class _SignInScreenState extends State<SignInScreenNew> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appTheme.primary,
-      appBar: CustomAppBar(),
+    //  appBar: CustomAppBar(),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            LanguageAppBar(),
-            SizedBox(height: 180.v),
-            Container(
-              width: 752.h,
-              height: 1568.v,
-              decoration: BoxDecoration(
-                color: appTheme.secondry,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(46),
-                  topRight: Radius.circular(46),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              LanguageAppBar(),
+              SizedBox(height: 180.v),
+              Container(
+                width: 752.h,
+                height: 1568.v,
+                decoration: BoxDecoration(
+                  color: appTheme.secondry,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(46),
+                    topRight: Radius.circular(46),
+                  ),
                 ),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(height: 50.v),
-                  Text(
-                    'أدخل رقم الجوال',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  SizedBox(height: 50.v),
-                  Text(
-                    'أدخل جوالك',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  Text(
-                    'حتى تبدأ التجربة',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  SizedBox(height: 200.v),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: CustomTextFormField(
-                      textAlign: TextAlign.left,
-                      height: 120.h,
-                      fillColor: appTheme.primary,
-                      controller: phoneController,
-                      filled: true,
-                      validator: (value) {
-                        if (value!.isEmpty) return language.thisFieldRequired;
-                        return null;
-                      },
-                      hintText: 'رقم الجوال',
-                      hintStyle: Theme.of(context).textTheme.labelLarge,
-                      textStyle: Theme.of(context).textTheme.bodySmall,
-                      suffix: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 5.0, vertical: 2),
-                        child: Container(
-                          width: 150.h,
-                          height: 100.v,
-                          decoration: BoxDecoration(
-                            color: appTheme.secondry,
-                            borderRadius: BorderRadius.circular(63),
-                          ),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text('966+'),
+                child: Column(
+                  children: [
+                    SizedBox(height: 50.v),
+                    Text(
+                      'أدخل رقم الجوال',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    SizedBox(height: 50.v),
+                    Text(
+                      'أدخل جوالك',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    Text(
+                      'حتى تبدأ التجربة',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    SizedBox(height: 200.v),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: CustomTextFormField(
+                        textAlign: TextAlign.left,
+                        height: 120.h,
+                        fillColor: appTheme.primary,
+                        controller: phoneController,
+                        filled: true,
+                        validator: (value) {
+                          if (value!.isEmpty) return language.thisFieldRequired;
+                          return null;
+                        },
+                        hintText: 'رقم الجوال',
+                        hintStyle: Theme.of(context).textTheme.labelLarge,
+                        textStyle: Theme.of(context).textTheme.bodySmall,
+                        suffix: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 5.0, vertical: 2),
+                          child: Container(
+                            width: 150.h,
+                            height: 100.v,
+                            decoration: BoxDecoration(
+                              color: appTheme.secondry,
+                              borderRadius: BorderRadius.circular(63),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('966+'),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 50.v),
-                  Text(
-                    'تطبق الشروط والأحكام',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  SizedBox(height: 150.v),
-                  _isLoading
-                      ? Center(
-                          child:
-                              CircularProgressIndicator())
-                      : CustomElevatedButton(
-                    text: 'إستمر',
-                    height: 122.v,
-                    width: 637.h,
-                    buttonTextStyle:
-                    Theme.of(context).textTheme.bodyMedium,
-                    buttonStyle: CustomButtonStyles.fillSecondry,
-                    onPressed: () async {
-                      setState(() {
-                        _isLoading =
-                        true;
-                      });
+                    SizedBox(height: 50.v),
+                    Text(
+                      'تطبق الشروط والأحكام',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    SizedBox(height: 150.v),
+                    _isLoading
+                        ? Center(
+                            child:
+                                CircularProgressIndicator())
+                        : CustomElevatedButton(
+                      text: 'إستمر',
+                      height: 122.v,
+                      width: 637.h,
+                      buttonTextStyle:
+                      Theme.of(context).textTheme.bodyMedium,
+                      buttonStyle: CustomButtonStyles.fillSecondry,
+                      onPressed: () async {
+                        setState(() {
+                          _isLoading =
+                          true;
+                        });
 
-                      try {
-                        await _phoneAuthService.verifyPhoneNumber(
-                          phoneController.text,
-                              (String verificationId, String phoneNumber) {
-                            print ("vvvvvvvvv is ${verificationId}");
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => OtpScreen(
-                                  verificationId: verificationId,
-                                  phoneNumber:
-                                  phoneNumber,
+                        try {
+                          await _phoneAuthService.verifyPhoneNumber(
+                            phoneController.text,
+                                (String verificationId, String phoneNumber) {
+                              print ("vvvvvvvvv is ${verificationId}");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OtpScreen(
+                                    verificationId: verificationId,
+                                    phoneNumber:
+                                    phoneNumber,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                        );
-                      } catch (error) {
-                        // التعامل مع الأخطاء
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Error: $error')),
-                        );
-                      } finally {
-                        if (!_isLoading) {
-                          setState(() {
-                            _isLoading = false;
-                          });
+                              );
+                            },
+                          );
+                        } catch (error) {
+                          // التعامل مع الأخطاء
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Error: $error')),
+                          );
+                        } finally {
+                          if (!_isLoading) {
+                            setState(() {
+                              _isLoading = false;
+                            });
+                          }
                         }
-                      }
 
-                      // FocusScope.of(context).unfocus();
-                      // if (phoneController.text.isNotEmpty) {
-                      //   final response = await logInApi({
-                      //     "contact_number": phoneController.text,
-                      //     // "player_id":
-                      //     //     sharedPref.getString(PLAYER_ID).validate(),
-                      //     "user_type": "rider",
-                      //   }, isSocialLogin: false);
-                      //
-                      //   if (response.data == 'failed') {
-                      //     ScaffoldMessenger.of(context).showSnackBar(
-                      //       SnackBar(
-                      //           content:
-                      //               Text('فشل التحقق: ${response.message}')),
-                      //     );
-                      //   } else {
-                      //     launchScreen(
-                      //       context,
-                      //       OtpScreen(
-                      //         phoneNumber: phoneController.text,
-                      //       ),
-                      //     );
-                      //   }
-                      // }
-                    },
-                  ),
-                ],
+                        // FocusScope.of(context).unfocus();
+                        // if (phoneController.text.isNotEmpty) {
+                        //   final response = await logInApi({
+                        //     "contact_number": phoneController.text,
+                        //     // "player_id":
+                        //     //     sharedPref.getString(PLAYER_ID).validate(),
+                        //     "user_type": "rider",
+                        //   }, isSocialLogin: false);
+                        //
+                        //   if (response.data == 'failed') {
+                        //     ScaffoldMessenger.of(context).showSnackBar(
+                        //       SnackBar(
+                        //           content:
+                        //               Text('فشل التحقق: ${response.message}')),
+                        //     );
+                        //   } else {
+                        //     launchScreen(
+                        //       context,
+                        //       OtpScreen(
+                        //         phoneNumber: phoneController.text,
+                        //       ),
+                        //     );
+                        //   }
+                        // }
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

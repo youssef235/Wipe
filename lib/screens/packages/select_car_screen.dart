@@ -220,8 +220,9 @@ class _SelectCarScreenState extends State<SelectCarScreen> {
                                 // التأكد من أن جميع الحقول معبأة
                                 if (brandController.text.isEmpty ||
                                     modelController.text.isEmpty ||
-                                    colorController.text.isEmpty ||
-                                    plateController.text.isEmpty) {
+                                    colorController.text.isEmpty
+                                   || plateController.text.isEmpty
+                                ) {
                                   toast('يرجى ملء جميع الحقول');
                                   return;
                                 }

@@ -263,7 +263,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                           borderRadius: BorderRadius.circular(12),
                           color: appTheme.secondry,
                         ),
-                        offset: const Offset(-20, 0),
+                        offset: const Offset(0, 0), // ضبط الإزاحة لتكون مركزية
                       ),
                       menuItemStyleData: MenuItemStyleData(
                         height: 40,
@@ -272,6 +272,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                       underline: SizedBox.shrink(),
                     ),
                   ),
+
                 ),
 
                 SizedBox(

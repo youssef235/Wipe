@@ -62,128 +62,130 @@ class _OtpScreenState extends State<OtpScreen> {
     return Scaffold(
       backgroundColor: appTheme.primary,
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 80.v),
-            LanguageAppBar(),
-            SizedBox(height: 180.v),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: 752.h,
-                height: 1568.v,
-                decoration: BoxDecoration(
-                  color: appTheme.secondry,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(46),
-                    topRight: Radius.circular(46),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 80.v),
+              LanguageAppBar(),
+              SizedBox(height: 180.v),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: 752.h,
+                  height: 1568.v,
+                  decoration: BoxDecoration(
+                    color: appTheme.secondry,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(46),
+                      topRight: Radius.circular(46),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 50.v),
+                      Text('الرجاء إدخال رمز التحقق',
+                          style: Theme.of(context).textTheme.bodyLarge),
+                      SizedBox(height: 50.v),
+                      Text(
+                        'تم إرسال الرمز التعريفي الخاص بك إلى ${widget.phoneNumber}',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      Text('في رسالة نصية عبر رقمك الجوال',
+                          style: Theme.of(context).textTheme.bodyMedium),
+                      SizedBox(height: 80.v),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: CustomTextFormField(
+                          textAlign: TextAlign.center,
+                          height: 120.h,
+                          fillColor: appTheme.primary,
+                          filled: true,
+                          controller: otpController,
+                          hintText: 'رمز التأكيد',
+                          hintStyle: Theme.of(context).textTheme.labelLarge,
+                          textStyle: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ),
+                      SizedBox(height: 50.v),
+                      Text(
+                        '00:${_remainingSeconds.toString().padLeft(2, '0')}',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      SizedBox(height: 150.v),
+                      _isLoading
+                          ? Center(child: CircularProgressIndicator())
+                          :CustomElevatedButton(
+                        text: 'إستمرار',
+                        height: 122.v,
+                        width: 637.h,
+                        onPressed: () async {
+                          setState(() {
+                            _isLoading = true;
+                          });
+
+                          if (otpController.text.isEmpty || otpController.text.length < 6) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('يرجى إدخال رمز OTP صحيح')),
+                            );
+                            setState(() {
+                              _isLoading = false;
+                            });
+                            return;
+                          }
+
+                          final phoneNumber = '+20${widget.phoneNumber?.substring(1)}';
+
+                          try {
+                            VerifyOtpResponse response = await verifyOtpApi({
+                              'phoneNumber': phoneNumber,
+                              'sessionInfo': widget.verificationId!,
+                              'code': otpController.text,
+                            });
+
+                            if (response.message == null) {
+                              // حفظ حالة تسجيل الدخول
+                              await sharedPref.setBool('isLoggedIn', true);
+
+                              // الحصول على التوكن من SharedPreferences
+                              String? token = sharedPref.getString(TOKEN);
+
+                              if (token != null) {
+                                print('Token: $token');
+                              } else {
+                                print('Token not found in SharedPreferences.');
+                              }
+
+                              // التوجيه إلى الشاشة الرئيسية
+                              launchScreen(context, MainScreen(), isNewTask: true);
+                              FocusScope.of(context).unfocus();
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('فشل التحقق من OTP: ${response.message}')),
+                              );
+                            }
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('حدث خطأ: $e')),
+                            );
+                          } finally {
+                            setState(() {
+                              _isLoading = false;
+                            });
+                          }
+                        },
+                        buttonTextStyle: Theme.of(context).textTheme.bodyMedium,
+                        buttonStyle: CustomButtonStyles.fillSecondry,
+                      )
+
+
+
+                    ],
                   ),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 50.v),
-                    Text('الرجاء إدخال رمز التحقق',
-                        style: Theme.of(context).textTheme.bodyLarge),
-                    SizedBox(height: 50.v),
-                    Text(
-                      'تم إرسال الرمز التعريفي الخاص بك إلى ${widget.phoneNumber}',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    Text('في رسالة نصية عبر رقمك الجوال',
-                        style: Theme.of(context).textTheme.bodyMedium),
-                    SizedBox(height: 80.v),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: CustomTextFormField(
-                        textAlign: TextAlign.center,
-                        height: 120.h,
-                        fillColor: appTheme.primary,
-                        filled: true,
-                        controller: otpController,
-                        hintText: 'رمز التأكيد',
-                        hintStyle: Theme.of(context).textTheme.labelLarge,
-                        textStyle: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ),
-                    SizedBox(height: 50.v),
-                    Text(
-                      '00:${_remainingSeconds.toString().padLeft(2, '0')}',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    SizedBox(height: 150.v),
-                    _isLoading
-                        ? Center(child: CircularProgressIndicator())
-                        :CustomElevatedButton(
-                      text: 'إستمرار',
-                      height: 122.v,
-                      width: 637.h,
-                      onPressed: () async {
-                        setState(() {
-                          _isLoading = true;
-                        });
-
-                        if (otpController.text.isEmpty || otpController.text.length < 6) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('يرجى إدخال رمز OTP صحيح')),
-                          );
-                          setState(() {
-                            _isLoading = false;
-                          });
-                          return;
-                        }
-
-                        final phoneNumber = '+20${widget.phoneNumber?.substring(1)}';
-
-                        try {
-                          VerifyOtpResponse response = await verifyOtpApi({
-                            'phoneNumber': phoneNumber,
-                            'sessionInfo': widget.verificationId!,
-                            'code': otpController.text,
-                          });
-
-                          if (response.message == null) {
-                            // حفظ حالة تسجيل الدخول
-                            await sharedPref.setBool('isLoggedIn', true);
-
-                            // الحصول على التوكن من SharedPreferences
-                            String? token = sharedPref.getString(TOKEN);
-
-                            if (token != null) {
-                              print('Token: $token');
-                            } else {
-                              print('Token not found in SharedPreferences.');
-                            }
-
-                            // التوجيه إلى الشاشة الرئيسية
-                            launchScreen(context, MainScreen(), isNewTask: true);
-                            FocusScope.of(context).unfocus();
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('فشل التحقق من OTP: ${response.message}')),
-                            );
-                          }
-                        } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('حدث خطأ: $e')),
-                          );
-                        } finally {
-                          setState(() {
-                            _isLoading = false;
-                          });
-                        }
-                      },
-                      buttonTextStyle: Theme.of(context).textTheme.bodyMedium,
-                      buttonStyle: CustomButtonStyles.fillSecondry,
-                    )
-
-
-
-                  ],
-                ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

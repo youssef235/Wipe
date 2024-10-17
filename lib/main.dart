@@ -69,8 +69,6 @@ Future<void> initialize({
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
   sharedPref = await SharedPreferences.getInstance();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await initialize(aLocaleLanguageList: languageList(), defaultLanguage: 'ar');

@@ -2,18 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>228402230352-v50ikstb1he1k1phpm5k3vtmc62j7vdo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.228402230352-v50ikstb1he1k1phpm5k3vtmc62j7vdo</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>228402230352-1tn0co2ikil8ldbua6mqoedbqehtesfq.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBTXQlMTjF6xKMREfl6WpfqgJuNkjQHB0g</string>
+	<string>AIzaSyAo_awcBKxIFn0nUxl-G0lk8eDL9-OWxYI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>633061968920</string>
+	<string>228402230352</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mighty.taxirider2</string>
+	<string>com.wipe.customer</string>
 	<key>PROJECT_ID</key>
-	<string>sawayer-b6add</string>
+	<string>danbeauty-937c5</string>
 	<key>STORAGE_BUCKET</key>
-	<string>sawayer-b6add.appspot.com</string>
+	<string>danbeauty-937c5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:633061968920:ios:d43fd1c1031307f3dd476d</string>
+	<string>1:228402230352:ios:64d9341a9722df7946cd55</string>
+	<key>DATABASE_URL</key>
+	<string>https://danbeauty-937c5-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

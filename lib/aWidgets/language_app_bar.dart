@@ -23,18 +23,18 @@ class _CustomRowWidgetState extends State<LanguageAppBar> {
       mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
-          width: 150,
+          width: 100,
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: SvgPicture.asset(
               'images/splash_logo.svg',
               fit: BoxFit.fill,
-              width: 40,
-              height: 70,
+              width: 100,
+              height: 30,
             ),
           ),
         ),
-        Expanded(child: Container()), // هذه الإضافة تجعل الـ Spacer مرنًا لتجنب overflow
+        Expanded(child: Container()),
         Padding(
           padding: const EdgeInsets.all(30.0),
           child: GestureDetector(

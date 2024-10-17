@@ -16,7 +16,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.primary, // اللون الخلفية
+      backgroundColor: appTheme.primary,
       body: SafeArea(
         child: Column(
           children: [
@@ -24,7 +24,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               height: 20,
             ),
             GetStartAppBar(),
-            Spacer(flex: 2), // فراغ أكبر قبل الجملتين
+            Spacer(flex: 2),
             Column(
               mainAxisAlignment:
                   MainAxisAlignment.center, // توسيط العناصر عمودياً
@@ -39,14 +39,14 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
         
               ],
             ),
-            Spacer(flex: 2), // فراغ أكبر بعد الجملتين
-            // الكارد الذي يحتوي على زر "Get Started"
+            Spacer(flex: 2),
+
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity, // عرض كامل
                 padding: EdgeInsets.symmetric(
-                    horizontal: 15), // حواف من اليمين والشمال
+                    horizontal: 15),
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -66,7 +66,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       ),
                     ),
                     child: Container(
-                      height: 150, // ارتفاع الكارد
+                      height: 120, // ارتفاع الكارد
                       decoration: BoxDecoration(
                         color: appTheme.secondry,
                         borderRadius: BorderRadius.only(
@@ -77,15 +77,19 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                         ),
                       ),
                       alignment: Alignment.center,
-                      child: Text(
-                        'أبـدأ',
-                        style: TextStyle(
-                            fontSize: 21,
-                            color: Colors.cyan,
-                            fontWeight: FontWeight.bold // لون النص
-                            ),
+                      child: Transform.translate(
+                        offset: const Offset(0, -10),
+                        child: Text(
+                          'أبـــدأ',
+                          style: TextStyle(
+                              fontSize: 21,
+                              color: Colors.cyan,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
                       ),
                     ),
+
                   ),
                 ),
               ),

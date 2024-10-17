@@ -21,7 +21,6 @@ class _CustomRowWidgetState extends State<CustomRowWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // الحصول على عرض الشاشة باستخدام MediaQuery
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Row(
