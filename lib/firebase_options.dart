@@ -45,7 +45,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAgh9ys12UucB5g2by5bMQJnQJMmRx44sM',
-    appId: '1:228402230352:android:36306c9dd27b133646cd55',
+    appId: '1:228402230352:android:e1adf65acc71181a46cd55',
     messagingSenderId: '228402230352',
     projectId: 'danbeauty-937c5',
     databaseURL: 'https://danbeauty-937c5-default-rtdb.firebaseio.com',
@@ -54,14 +54,14 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAo_awcBKxIFn0nUxl-G0lk8eDL9-OWxYI',
-    appId: '1:228402230352:ios:34a242a287abc4be46cd55',
+    appId: '1:228402230352:ios:6ad23c8a877224c946cd55',
     messagingSenderId: '228402230352',
     projectId: 'danbeauty-937c5',
     databaseURL: 'https://danbeauty-937c5-default-rtdb.firebaseio.com',
     storageBucket: 'danbeauty-937c5.appspot.com',
     androidClientId: '228402230352-1tn0co2ikil8ldbua6mqoedbqehtesfq.apps.googleusercontent.com',
-    iosClientId: '228402230352-gjtr1jb4apg8po6plu2iismm2sfgh41q.apps.googleusercontent.com',
-    iosBundleId: 'com.mighty.taxirider2',
+    iosClientId: '228402230352-e4mq0t0cmesea7ga4lh271ngum04hlr4.apps.googleusercontent.com',
+    iosBundleId: 'com.wash.wipe',
   );
 
   static const FirebaseOptions web = FirebaseOptions(

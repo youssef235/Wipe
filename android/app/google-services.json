@@ -72,11 +72,186 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228402230352:android:b5e5ff36eaa8addd46cd55",
+        "android_client_info": {
+          "package_name": "com.deesel.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228402230352-f4e0eccj89dni1hj66ij7h2n0itfovgo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deesel.customer",
+            "certificate_hash": "ccfa33ebea1e397825540ec92711a04cc946725b"
+          }
+        },
+        {
+          "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgh9ys12UucB5g2by5bMQJnQJMmRx44sM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jawad.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228402230352:android:ddbe22172653b32b46cd55",
+        "android_client_info": {
+          "package_name": "com.example.otp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228402230352-agdtgaku362no29v2mpsjr4adr44sr4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.otp",
+            "certificate_hash": "10e6989ce2173816a125e9dec9ba33320fbf566c"
+          }
+        },
+        {
+          "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgh9ys12UucB5g2by5bMQJnQJMmRx44sM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jawad.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228402230352:android:484adeac17c4c35046cd55",
+        "android_client_info": {
+          "package_name": "com.jawad.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228402230352-c9mcj53naksfqdru3kaam20t1rjr9967.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jawad.customer",
+            "certificate_hash": "10e6989ce2173816a125e9dec9ba33320fbf566c"
+          }
+        },
+        {
+          "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgh9ys12UucB5g2by5bMQJnQJMmRx44sM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jawad.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228402230352:android:e9f4baed45eef53846cd55",
+        "android_client_info": {
+          "package_name": "com.jawad.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228402230352-2si8jqhjjchq2nv0btul6jpupohm9vli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jawad.driver",
+            "certificate_hash": "10e6989ce2173816a125e9dec9ba33320fbf566c"
+          }
+        },
+        {
+          "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgh9ys12UucB5g2by5bMQJnQJMmRx44sM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -125,11 +300,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -162,11 +336,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -199,11 +372,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -236,11 +408,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -273,11 +444,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -310,11 +480,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -330,6 +499,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "228402230352-s0mqdbll4kl7ogeo8ao2kkopaui054hm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.t8nat.deeone.tech",
+            "certificate_hash": "ccfa33ebea1e397825540ec92711a04cc946725b"
+          }
+        },
+        {
           "client_id": "228402230352-c4g9qr5qcp5tc06l2085d1nmndd0fnhv.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -347,11 +524,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -360,9 +536,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:228402230352:android:36306c9dd27b133646cd55",
+        "mobilesdk_app_id": "1:228402230352:android:e1adf65acc71181a46cd55",
         "android_client_info": {
-          "package_name": "com.wipe.customer"
+          "package_name": "com.wash.wipe"
         }
       },
       "oauth_client": [
@@ -384,11 +560,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]
@@ -421,11 +596,10 @@
               "client_type": 3
             },
             {
-              "client_id": "228402230352-bj7jjtb2ltc2l0sq3jm31dq091m064pj.apps.googleusercontent.com",
+              "client_id": "228402230352-0nj6aqf1i9ft6h0623bvjidognjb457t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.palmtree.app",
-                "app_store_id": "6480025596"
+                "bundle_id": "com.jawad.customer"
               }
             }
           ]

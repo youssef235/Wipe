@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>228402230352-v50ikstb1he1k1phpm5k3vtmc62j7vdo.apps.googleusercontent.com</string>
+	<string>228402230352-e4mq0t0cmesea7ga4lh271ngum04hlr4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.228402230352-v50ikstb1he1k1phpm5k3vtmc62j7vdo</string>
+	<string>com.googleusercontent.apps.228402230352-e4mq0t0cmesea7ga4lh271ngum04hlr4</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>228402230352-1tn0co2ikil8ldbua6mqoedbqehtesfq.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.wipe.customer</string>
+	<string>com.wash.wipe</string>
 	<key>PROJECT_ID</key>
 	<string>danbeauty-937c5</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:228402230352:ios:64d9341a9722df7946cd55</string>
+	<string>1:228402230352:ios:6ad23c8a877224c946cd55</string>
 	<key>DATABASE_URL</key>
 	<string>https://danbeauty-937c5-default-rtdb.firebaseio.com</string>
 </dict>

@@ -1,4 +1,4 @@
-package com.mighty.sawayer_customer
+package com.wash.wipe
 
 import io.flutter.embedding.android.FlutterActivity
 
