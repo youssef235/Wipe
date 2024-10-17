@@ -41,7 +41,7 @@ class DashBoardScreen extends StatefulWidget {
 class DashBoardScreenState extends State<DashBoardScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController destinationLocation =
-      TextEditingController(text: appStore.selectedStartAddress);
+  TextEditingController(text: appStore.selectedStartAddress);
 
   LatLng? sourceLocation;
 
@@ -217,8 +217,8 @@ class DashBoardScreenState extends State<DashBoardScreen> {
   Future<void> getCurrentUserLocation() async {
     if (permissionData != LocationPermission.denied) {
       final geoPosition = await Geolocator.getCurrentPosition(
-              timeLimit: Duration(seconds: 30),
-              desiredAccuracy: LocationAccuracy.high)
+          timeLimit: Duration(seconds: 30),
+          desiredAccuracy: LocationAccuracy.high)
           .catchError((error) async {
         if (await checkPermission()) {
           await Geolocator.getCurrentPosition().then((value) {
@@ -239,7 +239,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
       Placemark place = placemarks[0];
       if (place != null) {
         sourceLocationTitle =
-            "${place.name != null ? place.name : place.subThoroughfare}, ${place.subLocality}, ${place.locality}, ${place.administrativeArea} ${place.postalCode}, ${place.country}";
+        "${place.name != null ? place.name : place.subThoroughfare}, ${place.subLocality}, ${place.locality}, ${place.administrativeArea} ${place.postalCode}, ${place.country}";
         polylineSource = LatLng(geoPosition.latitude, geoPosition.longitude);
       }
       markers.add(
@@ -354,19 +354,19 @@ class DashBoardScreenState extends State<DashBoardScreen> {
   Future<void> locationPermission() async {
     serviceStatusStream =
         Geolocator.getServiceStatusStream().listen((ServiceStatus status) {
-      if (status == ServiceStatus.disabled) {
-        launchScreen(navigatorKey.currentState!.overlay!.context,
-            LocationPermissionScreen());
-      } else if (status == ServiceStatus.enabled) {
-        getCurrentUserLocation();
+          if (status == ServiceStatus.disabled) {
+            launchScreen(navigatorKey.currentState!.overlay!.context,
+                LocationPermissionScreen());
+          } else if (status == ServiceStatus.enabled) {
+            getCurrentUserLocation();
 
-        if (Navigator.canPop(navigatorKey.currentState!.overlay!.context)) {
-          Navigator.pop(navigatorKey.currentState!.overlay!.context);
-        }
-      }
-    }, onError: (error) {
-      //
-    });
+            if (Navigator.canPop(navigatorKey.currentState!.overlay!.context)) {
+              Navigator.pop(navigatorKey.currentState!.overlay!.context);
+            }
+          }
+        }, onError: (error) {
+          //
+        });
   }
 
   Future<void> startLocationTracking() async {
@@ -406,7 +406,6 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
-      //  drawer: DrawerComponent(),
       backgroundColor: Colors.white,
       body: Stack(
         alignment: Alignment.center,
@@ -417,7 +416,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
             height: 1920.v,
           ),
           Positioned(
-            top: context.statusBarHeight - 8,
+            top: -3,
             right: 8,
             left: 8,
             child: CustomRowWidget(),
@@ -438,9 +437,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       myLocationEnabled: false,
                       style: _mapStyle,
                       onCameraMove: _onCameraMove,
-                      onMapCreated:
-                          _onMapCreated, // تأكد من ربط الخريطة بتطبيق النمط
-
+                      onMapCreated: _onMapCreated,
                       onCameraIdle: _onCamerIdle,
                       markers: markers.map((e) => e).toSet(),
                       polylines: _polyLines,
@@ -468,37 +465,50 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                   child: InkWell(
                     onTap: () {
                       appStore.setIsSourceConfirmed(true);
-                      //  controller.deperature.value = true;
                     },
                     child: Container(
-                        width: 400,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                        ),
-                        child: Center(
-                          child: Text(
-                            'تأكيد موقع المغادرة',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
+                      width: 400,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'تأكيد موقع المغادرة',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               );
             },
           ),
-          Positioned(
-            bottom: 120,
-            child: Text(
-              'من فضلك إختر العنوان',
-              style: TextStyle(
-                  color: appTheme.secondry,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600),
-            ),
+          // وضع النص بين الزر والخريطة
+          Observer(
+            builder: (context) {
+              return Visibility(
+                visible: appStore.isDestinationSelected &&
+                    appStore.isDestinationConfirmed == false,
+                child: Positioned(
+                  bottom: 80, // المسافة بين الزر والخريطة
+                  right: 50,
+                  left: 50,
+                  child: Text(
+                    'من فضلك اختر العنوان',
+                    style: TextStyle(
+                      color: appTheme.secondry,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              );
+            },
           ),
           Observer(
             builder: (context) {
@@ -522,7 +532,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       double latitude = sourceLocation!.latitude;
                       double longitude = sourceLocation!.longitude;
                       SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
+                      await SharedPreferences.getInstance();
 
                       // حفظ الموقع في SharedPreferences
                       await prefs.setDouble('latitude', latitude);
@@ -544,19 +554,22 @@ class DashBoardScreenState extends State<DashBoardScreen> {
           ),
           Observer(builder: (context) {
             return Positioned(
-                top: 80,
-                left: 0,
-                right: 0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                      // height: 400,
-                      width: 200,
-                      child: ArriveRiderWidget(
-                          title: sourceLocationTitle,
-                          destinationLocation: TextEditingController(
-                              text: appStore.selectedStartAddress))),
-                ));
+              top: 80,
+              left: 0,
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 200,
+                  child: ArriveRiderWidget(
+                    title: sourceLocationTitle,
+                    destinationLocation: TextEditingController(
+                      text: appStore.selectedStartAddress,
+                    ),
+                  ),
+                ),
+              ),
+            );
           }),
           Visibility(
             visible: appStore.isLoading,

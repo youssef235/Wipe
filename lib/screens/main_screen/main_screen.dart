@@ -65,9 +65,9 @@ class _MainScreenState extends State<MainScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 20),
+                //  SizedBox(height: 20),
                   CustomRowWidget(),
-                  SizedBox(height: context.statusBarHeight + 1),
+                  SizedBox(height: context.statusBarHeight ),
                   Align(
                     alignment: Alignment.center,
                     child: Text(

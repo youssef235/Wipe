@@ -119,10 +119,10 @@ class _PackagesScreenState extends State<PackagesScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  height: context.statusBarHeight + 4,
+                  height: context.statusBarHeight,
                 ),
                 Positioned(
-                  top: context.statusBarHeight - 8,
+                  top: context.statusBarHeight ,
                   right: 8,
                   left: 8,
                   child: CustomRowWidget(),
@@ -316,7 +316,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
             ),
           ),
           Positioned(
-            bottom: 100.v,
+            bottom: 90.v,
             child: Align(
               alignment: Alignment.center,
               child: CustomElevatedButton(
